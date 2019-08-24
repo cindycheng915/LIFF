@@ -25,37 +25,34 @@
                       const userId = data.context.userId;
                        //1            
                       const accessToken = liff.getAccessToken();
-                      alert(accessToken);
             
                       //2
                       liff.getProfile()
                       .then(profile => {
                         const name = profile.displayName;
-                        alert(name);
+							liff.sendMessages([
+						  {
+							type:'text',
+							text:'大家好，我'+name+'是白癡'
+						  }
+						  ])
+						  .then(() => {
+							console.log('message sent');
+						  })
+						  .catch((err) => {
+							console.log('error', err);
+						  });
+						  liff.closeWindow();
                                                 
                       })
                       .catch((err) => {
                         console.log('error', err);
                       });
-                      liff.sendMessages([
-                      {
-                        type:'text',
-                        text:'大家好，我是白癡'
-                      }
-                      ])
-                      .then(() => {
-                        console.log('message sent');
-                      })
-                      .catch((err) => {
-                        console.log('error', err);
-                      });
-                      liff.closeWindow();
+                      
 
                   },
                   err => {
                     // LIFF initialization failed
-                    alert("ERR");
-                    alert(err);
                   }
                 );
                 /*
@@ -70,7 +67,7 @@
                       liff.sendMessages([
                       {
                         type:'text',
-                        text:'Hello, World!'
+						text:'大家好，我'+name+'是白癡'
                       }
                     ])
                     .then(() => {
