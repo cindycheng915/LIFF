@@ -16,10 +16,6 @@
 	  <iframe id ="iframe" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
 		<script>
 			$(document).ready(function(){
-				const urlParams = new URLSearchParams(window.location.search);				
-				const myParam = urlParams.get('url');
-				const title = urlParams.get('title');
-				const key = urlParams.get('key');
 
 				document.title = decodeURI(title);
 				liff.init(
@@ -29,6 +25,11 @@
 						liff.getProfile()
 						.then(profile => {
 						  const name = profile.displayName;
+						  const urlParams = new URLSearchParams(window.location.search);				
+				          const myParam = urlParams.get('url');
+				          const title = urlParams.get('title');
+						  const key = urlParams.get('key');
+
 						  $("#iframe").attr("src",myParam+"?userId="+userId+"&userName="+encodeURI(name)+"&key="+key);
 						})
 						.catch((err) => {
