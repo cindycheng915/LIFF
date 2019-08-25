@@ -18,18 +18,16 @@
 			$(document).ready(function(){
 				const urlParams = new URLSearchParams(window.location.search);				
 				const myParam = urlParams.get('url');
-				$("#iframe").attr("src",myParam);
 				liff.init(
 				  data => {
 					  // Now you can call LIFF API
-					  userId = data.context.userId;                      
-					  
+					  const userId = data.context.userId;                      
+					  $("#iframe").attr("src",myParam+"?userId="+userId);
 				  },
 				  err => {
 				  }
 				);
 			});
-			var userId = "abc";
 			function getParameterByName(name, url) {
 				if (!url) url = window.location.href;
 				name = name.replace(/[\[\]]/g, '\\$&');
