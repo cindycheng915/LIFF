@@ -23,8 +23,16 @@
 				liff.init(
 				  data => {
 					  // Now you can call LIFF API
-					  const userId = data.context.userId;                      
-					  $("#iframe").attr("src",myParam+"?userId="+userId);
+					  const userId = data.context.userId;                   
+						liff.getProfile()
+						.then(profile => {
+						  const name = profile.displayName;
+						  $("#iframe").attr("src",myParam+"?userId="+userId+"&userName="+encodeURI(name));
+						})
+						.catch((err) => {
+						  console.log('error', err);
+						});
+					  
 				  },
 				  err => {
 				  }
