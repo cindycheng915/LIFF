@@ -26,8 +26,9 @@
 				return decodeURIComponent(results[2].replace(/\+/g, ' '));
 			}
 			$(document).ready(function(){
-				const urlParams = new URLSearchParams(window.location.search);
+				const urlParams = new URLSearchParams(window.location.search);				
 				const myParam = urlParams.get('url');
+				alert(myParam);
 				$("#iframe").attr("src",myParam);
 				liff.init(
 				  data => {
