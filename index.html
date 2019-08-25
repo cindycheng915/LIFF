@@ -19,6 +19,8 @@
 				const urlParams = new URLSearchParams(window.location.search);				
 				const myParam = urlParams.get('url');
 				const title = urlParams.get('title');
+				const key = urlParams.get('key');
+
 				document.title = decodeURI(title);
 				liff.init(
 				  data => {
@@ -27,7 +29,7 @@
 						liff.getProfile()
 						.then(profile => {
 						  const name = profile.displayName;
-						  $("#iframe").attr("src",myParam+"?userId="+userId+"&userName="+encodeURI(name));
+						  $("#iframe").attr("src",myParam+"?userId="+userId+"&userName="+encodeURI(name)+"&key="+key);
 						})
 						.catch((err) => {
 						  console.log('error', err);
