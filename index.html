@@ -26,7 +26,7 @@
 						  const urlParams = new URLSearchParams(window.location.search);				
 				          const myParam = urlParams.get('url');
 				          const title = urlParams.get('title');
-						  document.title = decodeURI(title);
+						  document.title = name+"的"+decodeURI(title);
 						  const key = urlParams.get('key');
 
 						  $("#iframe").attr("src",myParam+"?userId="+userId+"&userName="+encodeURI(name)+"&key="+key);
