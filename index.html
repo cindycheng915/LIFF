@@ -31,12 +31,11 @@
 							document.title = name+"的"+decodeURI(title);
 						  else 
 							document.title = decodeURI(title);						  
-						  urlParams = urlParams.replace("&url="+myParam,"");
-						  urlParams = urlParams.replace("url="+myParam+"&","");
-						  urlParams = urlParams.replace("&title="+title,"");
-						  urlParams = urlParams.replace("title="+title+"&","");
-
-						  $("#iframe").attr("src",myParam+urlParams+"&userId="+userId+"&userName="+encodeURI(name));
+						  urlParams = urlParams.delete("url");
+						  urlParams = urlParams.delete("p");
+						  urlParams = urlParams.delete("title");
+						  
+						  $("#iframe").attr("src",myParam+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name));
 						})
 						.catch((err) => {
 						  console.log('error', err);
@@ -47,26 +46,16 @@
 				);
 			});
 			
-			function sendMsg(msg)
-			{
-				liff.sendMessages([msg]);
+			function sendMsg(msg){
+				liff.sendMessages([msg])
 				.then(() => {
 				alert("OK");
 				})
 				.catch((err) => {
 				alert(JSON.stringify(err));
-				});				  
+				});
 			}
 			
-			function getParameterByName(name, url) {
-				if (!url) url = window.location.href;
-				name = name.replace(/[\[\]]/g, '\\$&');
-				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-					results = regex.exec(url);
-				if (!results) return null;
-				if (!results[2]) return '';
-				return decodeURIComponent(results[2].replace(/\+/g, ' '));
-			}
 			
 		</script>
 	</body>
