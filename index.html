@@ -24,7 +24,7 @@
 						.then(profile => {
 						  const name = profile.displayName;
 						  const urlParams = new URLSearchParams(window.location.search);				
-				          const myParam = urlParams.get('url');
+				          const url = urlParams.get('url');
 						  const publicic = urlParams.get('p');
 						  const title = urlParams.get('title');
 						  if(publicic == null)
@@ -35,7 +35,7 @@
 						  urlParams = urlParams.delete("p");
 						  urlParams = urlParams.delete("title");
 						  
-						  $("#iframe").attr("src",myParam+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name));
+						  $("#iframe").attr("src",url+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name));
 						})
 						.catch((err) => {
 						  console.log('error', err);
