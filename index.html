@@ -31,9 +31,9 @@
 							document.title = name+"的"+decodeURI(title);
 						  else 
 							document.title = decodeURI(title);						  
-						  urlParams = urlParams.delete("url");
-						  urlParams = urlParams.delete("p");
-						  urlParams = urlParams.delete("title");
+						  urlParams.delete("url");
+						  urlParams.delete("p");
+						  urlParams.delete("title");
 						  alert(url+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name));
 						  $("#iframe").attr("src",url+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name));
 						})
