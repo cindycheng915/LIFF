@@ -36,7 +36,7 @@
 						  urlParams = urlParams.replace("&title="+title,"");
 						  urlParams = urlParams.replace("title="+title+"&","");
 
-						  $("#iframe").attr("src",myParam+"?userId="+userId+"&userName="+encodeURI(name)+urlParams);
+						  $("#iframe").attr("src",myParam+urlParams+"&userId="+userId+"&userName="+encodeURI(name)+);
 						})
 						.catch((err) => {
 						  console.log('error', err);
