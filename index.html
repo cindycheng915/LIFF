@@ -27,7 +27,7 @@
 				          const myParam = urlParams.get('url');
 						  const publicic = urlParams.get('p');
 						  const title = urlParams.get('title');
-						  if(publicic == null || publicic == '')
+						  if(publicic == null)
 							document.title = name+"的"+decodeURI(title);
 						  else 
 							document.title = decodeURI(title);						  
