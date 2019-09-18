@@ -25,11 +25,18 @@
 						  const name = profile.displayName;
 						  const urlParams = new URLSearchParams(window.location.search);				
 				          const myParam = urlParams.get('url');
-				          const title = urlParams.get('title');
-						  document.title = name+"的"+decodeURI(title);
-						  const key = urlParams.get('key');
+						  const publicic = urlParams.get('p');
+						  const title = urlParams.get('title');
+						  if(publicic == null || publicic == '')
+							document.title = name+"的"+decodeURI(title);
+						  else 
+							document.title = decodeURI(title);						  
+						  urlParams = urlParams.replace("&url="+myParam,"");
+						  urlParams = urlParams.replace("url="+myParam+"&","");
+						  urlParams = urlParams.replace("&title="+title,"");
+						  urlParams = urlParams.replace("title="+title+"&","");
 
-						  $("#iframe").attr("src",myParam+"?userId="+userId+"&userName="+encodeURI(name)+"&key="+key);
+						  $("#iframe").attr("src",myParam+"?userId="+userId+"&userName="+encodeURI(name)+urlParams);
 						})
 						.catch((err) => {
 						  console.log('error', err);
