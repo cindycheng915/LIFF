@@ -34,6 +34,7 @@
 						  urlParams.delete("url");
 						  urlParams.delete("p");
 						  urlParams.delete("title");
+						  alert(url+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name));
 						  $("#iframe").attr("src",url+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name));
 						})
 						.catch((err) => {
