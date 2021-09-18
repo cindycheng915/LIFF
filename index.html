@@ -34,7 +34,7 @@
 							  urlParams.delete("url");
 							  urlParams.delete("p");
 							  urlParams.delete("title");
-							  $("#iframe").attr("src",url+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name));
+							  document.getElementById('iframe').src = url+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name);
 							})
 							.catch((err) => {
 							  console.log('error', err);
