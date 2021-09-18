@@ -8,12 +8,13 @@
 	  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
 	  <iframe id ="iframe" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
 		<script>
-			window.onload = function(){
-			  const urlParams = new URLSearchParams(window.location.search);				
-			  const url = urlParams.get('url');
-			  const liffId = urlParams.get('liffId');
-			  const publicic = urlParams.get('p');
-			  const title = urlParams.get('title');
+			window.onload = function(){			  
+ 			  let urlParams = new URLSearchParams(window.location.search);
+			  const params = urlParams.has('liff.state')? new URLSearchParams(urlParams.get('liff.state')) : urlParams;
+			  const url = params.get('url');
+			  const liffId = params.get('liffId');
+			  const publicic = params.get('p');
+			  const title = params.get('title');
 
 				liff
 				  .init({
