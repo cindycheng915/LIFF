@@ -12,7 +12,7 @@
  			  let urlParams = new URLSearchParams(window.location.search);
 			  const params = urlParams.has('liff.state')? new URLSearchParams(urlParams.get('liff.state')) : urlParams;
 			  const url = params.get('url');
-			  const liffId = params.get('liffId');
+			  const liffId = urlParams.get('liffId') ?? params.get('liffId');
 			  const publicic = params.get('p');
 			  const title = params.get('title');
 
