@@ -34,7 +34,6 @@
 								document.title = decodeURI(title);						  
 							  urlParams.delete("url");
 							  urlParams.delete("p");
-							  urlParams.delete("title");
 							  document.getElementById('iframe').src = url+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name);
 							})
 							.catch((err) => {
