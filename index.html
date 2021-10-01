@@ -6,8 +6,9 @@
 	</head>
 	  <body style="margin:0px;padding:0px;overflow:hidden">
 	  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+	  <img id='loading' src="https://i.stack.imgur.com/MEBIB.gif"/>
 	  <iframe id ="iframe" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
-		<script>
+		<script>			
 			window.onload = function(){			  
  			  let urlParams = new URLSearchParams(window.location.search);
 			  const params = urlParams.has('liff.state')? new URLSearchParams(urlParams.get('liff.state')) : urlParams;
@@ -35,6 +36,9 @@
 							  urlParams.delete("url");
 							  urlParams.delete("p");
 							  document.getElementById('iframe').src = url+"?"+urlParams+"&userId="+userId+"&userName="+encodeURI(name);
+							  document.getElementById('iframe').onload = function(){
+								document.getElementById('loading').style.display = "none";
+							  };
 							})
 							.catch((err) => {
 							  console.log('error', err);
